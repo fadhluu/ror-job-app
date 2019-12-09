@@ -3,7 +3,6 @@
 Rails.application.routes.draw do
   resources :users, only: %i[new create]
   get 'login', to: 'sessions#new'
-  post 'users', to: 'sessions#create'
   # get 'welcome', to: 'sessions#welcome'
 
   # homepage

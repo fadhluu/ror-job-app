@@ -1,15 +1,21 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   def new
-    @user = User.create(
-    params.require(:user).permit(:username,
-      :password)
-    )
-
-    session[:user_id] = @user.id
-
-    redirect_to '/welcome'
+    @user = User.new
   end
 
   def create
+    @user = User.new(params_session)
+    
+    session[:user_id] = @user.id
+
+    redirect_to root_path
+  end
+
+  private
+
+  def params_session
+    params.require(:user).permit(:username, :password, :first_name, :last_name, :dob)
   end
 end
