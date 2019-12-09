@@ -1,2 +1,14 @@
-<h1>Pages#index</h1>
-<p>Find me in app/views/pages/index.html.erb</p>
+<%= content_for :body do %>
+  <h1>Job List</h1>
+  <% @jobs.each do |j| %>
+    <div class="card border-primary mb-3" style="max-width: 30rem;">
+      <h4 class="card-header bg-primary text-white">
+        <%= j.job %>
+      </h4>
+      <div class="card-body">
+        <p class="card-text"><%= j.job_description %></p>
+        <a href="#" class="card-link">View Jobs</a>
+      </div>
+    </div>
+  <% end %>
+<% end %>
