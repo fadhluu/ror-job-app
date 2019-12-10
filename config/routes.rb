@@ -2,9 +2,9 @@
 
 Rails.application.routes.draw do
   resources :users, only: %i[new create]
-  get 'login', to: 'sessions#new'
-  post 'login', to: 'sessions#create'
-  # get 'welcome', to: 'sessions#welcome'
+  get 'login' => 'sessions#login'
+  post 'login' => 'sessions#create', as: :login_session
+  delete 'logout' => 'sessions#destroy', as: :destroy_session
 
   # homepage
   root 'pages#index'

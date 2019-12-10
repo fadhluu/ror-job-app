@@ -66,3 +66,5 @@ gem 'rubocop'
 gem 'bootstrap', '~> 4.3.1'
 
 gem 'bcrypt'
+
+gem 'jquery-rails'

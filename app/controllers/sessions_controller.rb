@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
 class SessionsController < ApplicationController
-  def new
-    @user = User.new
-  end
-
   def create
     @user = User.find_by(username: params[:username])
 
@@ -16,7 +12,13 @@ class SessionsController < ApplicationController
     end
   end
 
-  def login; end
+  def destroy
+    if logged_in?
+      session[:user_id] = nil
+    else
+      redirect_to login_path
+    end
 
-  def welcome; end
+    redirect_to root_path
+  end
 end
