@@ -10,7 +10,10 @@
       <%= password_field_tag :password, (params[:password] unless params[:password].blank?), class: 'form-control' %>
     </div>
     <div class="form-group">
-      <%= submit_tag :submit, class:"btn btn-primary"%>
+      <%= submit_tag :submit, class:"btn btn-primary", value: "Login"%>
     </div>
+  <% end %>
+  <% if flash.any?%>
+    <%= render 'layouts/error' %>
   <% end %>
 <% end %>
