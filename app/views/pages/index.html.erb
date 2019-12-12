@@ -1,17 +1,7 @@
 <%= content_for :body do %>
   <% if logged_in? %>
-    <h1>You are Logged In, <%= current_user.username %></h1>
+    <h1>You are Logged In, <%= current_user.username %>.</h1>
   <%end%>
-  <h1>Job List</h1>
-  <% @jobs.each do |j| %>
-    <div class="card border-primary mb-3" style="max-width: 30rem;">
-      <h4 class="card-header bg-primary text-white">
-        <%= j.job %>
-      </h4>
-      <div class="card-body">
-        <p class="card-text"><%= j.job_description %></p>
-        <a href="#" class="card-link">View Jobs</a>
-      </div>
-    </div>
-  <% end %>
+  <h1>Jobs List</h1>
+  <%= render @jobs %>
 <% end %>

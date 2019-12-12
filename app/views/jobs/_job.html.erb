@@ -1,0 +1,9 @@
+<div class="card border-primary mb-3" style="max-width: 30rem;">
+  <h4 class="card-header bg-primary text-white">
+    <%= job.job %>
+  </h4>
+  <div class="card-body">
+    <p class="card-text"><%= job.job_description %></p>
+    <%= link_to 'View Jobs', jobs_path(job.id), class: "card-link" %>
+  </div>
+</div>

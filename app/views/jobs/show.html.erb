@@ -1,0 +1,12 @@
+<%= content_for :body do %>
+  <div class="card border-primary">
+    <div class="card-header bg-primary text-white">
+      Job Description
+    </div>
+    <div class="card-body">
+      <h3 class="card-title"><%= @job.job %></h5>
+      <p class="card-text lead"><%= @job.job_description %></p>
+      <p class="card-text text-muted">Job posted at <%= @job.created_at.to_date %></p>
+    </div>
+  </div>
+<% end %>
