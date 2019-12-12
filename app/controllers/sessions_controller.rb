@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
       redirect_to root_path
     else
       redirect_to login_path
+      flash[:danger] = "Wrong credentials"
     end
   end
 
@@ -20,5 +21,6 @@ class SessionsController < ApplicationController
     end
 
     redirect_to root_path
+    flash[:success] = "Logout Success"
   end
 end
