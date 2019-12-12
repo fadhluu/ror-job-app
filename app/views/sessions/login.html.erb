@@ -1,5 +1,5 @@
 <%= content_for :body do %>
-  <%= form_tag login_path, style: "max-width:20rem;" do %>
+  <%= form_tag login_path do %>
     <h4>Login</h4>
     <div class="form-group">
       <%= label_tag :username %>
@@ -13,7 +13,9 @@
       <%= submit_tag :submit, class:"btn btn-primary", value: "Login"%>
     </div>
   <% end %>
-  <% if flash.any?%>
-    <%= render 'layouts/error' %>
+  <% if flash.any? %>
+    <% flash.each do |key, value| %>
+      <%= content_tag :div, value, class: "alert alert-#{key}" %>
+    <% end %>
   <% end %>
 <% end %>
