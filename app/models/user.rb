@@ -6,4 +6,7 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :password, presence: true, length: {minimum:5}
 
+  has_many :users_jobs
+  has_many :jobs, through: :users_jobs, dependent: :destroy
+
 end
