@@ -13,6 +13,11 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
+  def show
+    @user = User.find_by(username: params[:id])
+    @user_jobs = @user.jobs
+  end
+
   private
 
   def params_session
