@@ -1,0 +1,5 @@
+<%= content_for :body do %>
+  <% @user_jobs.each do |uj| %>
+    <%= uj.job %>
+  <% end %>
+<% end %>
