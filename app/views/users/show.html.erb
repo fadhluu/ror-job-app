@@ -1,5 +1,31 @@
 <%= content_for :body do %>
-  <% @user_jobs.each do |uj| %>
-    <%= uj.job %>
-  <% end %>
+  <div class="row">
+    <div class="col-lg-6 mx-auto">
+      <h1 class="display-1 text-center">
+        <%= @user.username.capitalize %>
+      </h1>
+      <p>First Name: <%= @user.first_name %></p>
+      <p>Last Name: <%= @user.last_name %></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-6 mx-auto">
+      <h5>
+        Your Applied Jobs:
+      </h5>
+      <% @user_jobs.each do |uj| %>
+        <div class="card border-primary mb-3">
+          <h4 class="card-header bg-primary text-white">
+            <%= uj.job %>
+          </h4>
+          <div class="card-body">
+            <p class="card-text">
+              <%= uj.job_description %>
+            </p>
+            <%= link_to 'View Jobs', jobs_path(uj.id), class: "card-link" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 <% end %>
