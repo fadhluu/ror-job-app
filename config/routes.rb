@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   #jobs path
   get 'jobs/:id' => 'jobs#show', as: :jobs
+  #apply job
+  post 'jobs/:id/apply' => 'user_job#apply', as: :apply
 
   # homepage path
   root 'pages#index'
